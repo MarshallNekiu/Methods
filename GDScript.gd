@@ -1,6 +1,6 @@
 
 
-func get_signals(node:Node, requested_method:Array[Callable] = [], show_lambdas := false)  -> Dictionary:
+func get_signals(node:Node, requested_method:Array[Callable] = [], show_lambdas := false) -> Dictionary:
 	var found := {node: []}
 	
 	for SIGNAL in node.get_signal_list():
