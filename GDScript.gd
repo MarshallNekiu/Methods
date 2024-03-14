@@ -19,5 +19,6 @@ func get_signals(node:Node, requested_method:Array[Callable] = [], show_lambdas 
 	return found
 
 
-func pos_to_grid(pos: Vector2, grid_step := Vector2(32, 32)):
-	return Vector2((grid_step.x - int(pos.x) % int(grid_step.x)) + int(pos.x), grid_step.y - (int(pos.y) % int(grid_step.y)) + int(pos.y))
+func pos_to_grid(pos: Vector2i, grid_step := Vector2i(32, 32)):
+	return Vector2(grid_step.x - pos.x % grid_step.x + pos.x, grid_step.y - pos.y % grid_step.y + pos.y)
+
