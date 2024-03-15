@@ -7,8 +7,7 @@ func get_signals(node:Node, requested_method:Array[Callable] = [], show_lambdas 
 		for CONNECTION in node.get_signal_connection_list(SIGNAL["name"]):
 				if requested_method.is_empty() and not show_lambdas:
 					found[node].append(CONNECTION)
-					continue
-				if CONNECTION["callable"] in requested_method or (show_lambdas and "<anonymous lambda>(lambda)" == str(CONNECTION["callable"])):
+				elif CONNECTION["callable"] in requested_method or (show_lambdas and "<anonymous lambda>(lambda)" == str(CONNECTION["callable"])):
 					found[node].append(CONNECTION)
 	
 	if found[node].is_empty(): found.erase(node)
