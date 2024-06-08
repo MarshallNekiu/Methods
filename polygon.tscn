@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2md07pmqrxcr"]
+
+[ext_resource type="Script" path="res://script/polygon.gd" id="1_h2aqg"]
+[ext_resource type="PackedScene" path="res://scene/triangle.tscn" id="2_3ce0h"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2qq7s"]
+
+[node name="Polygon" type="Area3D" groups=["Polygon"]]
+input_capture_on_drag = true
+script = ExtResource("1_h2aqg")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_2qq7s")
+
+[node name="Triangle" parent="." instance=ExtResource("2_3ce0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406085, 0, 0)
+
+[node name="Triangle2" parent="." instance=ExtResource("2_3ce0h")]
+transform = Transform3D(-4.37114e-08, -1, 0, -1, 4.37114e-08, 8.74228e-08, -8.74228e-08, 3.82137e-15, -1, 0, 0, 0)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
